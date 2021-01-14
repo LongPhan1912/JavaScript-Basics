@@ -71,3 +71,32 @@ function freezeObj() {
 }
 const PI = freezeObj(); // you get an object error
 
+/* object methods */
+const groceries = {
+    location: "Walmart",
+    list: ["eggs"],
+    addToList(item) {
+        // the keyword 'this' refers to a method's calling object
+        // in this case, it's the 'groceries' object itself
+        // so that you can access properties belonging to that object
+        this.list.push(item);
+        return this.list;
+    },
+    // anonymous arrow function
+    deleteFromList: (item) => {
+        var newList = groceries.list.filter(x => x !== item);
+        return newList;
+    },
+    getLocation: () => {
+        return this.location;
+    }
+}
+console.log(groceries.getLocation());
+console.log(groceries.addToList("milk")); // output: ["eggs", "milk"]
+console.log(groceries.deleteFromList("bananas")); // output same as the line above
+console.log(groceries.deleteFromList("milk")); // output: ["eggs"]
+
+/* shorthand property name syntax for object creation */
+const activity = 'sleeping';
+const panda = { activity };
+console.log(panda); // { activity: 'sleeping' };
