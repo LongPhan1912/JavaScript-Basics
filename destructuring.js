@@ -5,6 +5,7 @@ var example = { x: 3.0, y: 9.8, z: 11.2 };
 const { x: a, y: b, z: c } = example; 
 // get the field of x and copy it into value a
 // and so on
+console.log(a, b, c); // output: 3, 9.8, 11.2
 
 const tempObj = {
     today: 55,
